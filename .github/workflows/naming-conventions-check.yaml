@@ -1,0 +1,19 @@
+name: 'Naming convention checks'
+on: pull_request
+
+jobs:
+  naming-conventions-check:
+    runs-on: ubuntu-latest
+    steps:
+      # Check that branch starts with a ticket number
+      # e.g. PAY-123-some_branch_name
+      # master and develop are the only 2 exceptions
+      - uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '[A-Z]+-[0-9]-.*'
+          ignore: master,develop
+      # Check that PR title starts with a ticket number
+      # e.g. PAY-123: some commit message
+      - uses: Slashgear/action-check-pr-title@2.0.0
+        with:
+          regex: '[A-Z]+-[0-9]+: .*' # Regex the title should match.
