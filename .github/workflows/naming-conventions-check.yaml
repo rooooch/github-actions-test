@@ -11,7 +11,7 @@ jobs:
       # see: https://github.com/marketplace/actions/branch-name-rules
       - uses: deepakputhraya/action-branch-name@master
         with:
-          regex: '[A-Z]+-[0-9]+-.*'
+          regex: '^[A-Z]+-[0-9]+-.*$'
           ignore: master,develop
   check-pr-title:
     runs-on: ubuntu-latest
@@ -21,4 +21,4 @@ jobs:
       # see: https://github.com/marketplace/actions/check-pull-request-title
       - uses: Slashgear/action-check-pr-title@v3.0.0
         with:
-          regexp: '[A-Z]+-[0-9]+:.*' # Regex the title should match.
+          regexp: '^[A-Z]+-[0-9]+:.*$' # Regex the title should match.
